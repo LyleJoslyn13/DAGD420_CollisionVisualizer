@@ -1,7 +1,11 @@
 // this class defines a "Title" scene
 class SceneTitle {
   
-  Button myButton = new Button(100, 100, 150, 50, "Click Me");
+  Button RadialButton = new Button(25, 700, 450, 150, "Radial Collision");
+  Button AABBButton = new Button(525, 700, 450, 150, "AABB Collision");
+  
+  float Timer = 0;
+  boolean isTimed = false;
   
   SceneTitle() {
     
@@ -12,19 +16,36 @@ class SceneTitle {
   }
   
   void draw() {
-    //ADJUST LATER --- VISUAL DESIGN !!!!!!!!!!!!!!
-    background(0);
-    fill(255);
-    textSize(35);
-    textAlign(CENTER, CENTER);
-    text("Collision Visualizer", width/2, height/2-60);
+    Timer += dt;
     
-    myButton.update(); // Update hover state
-    myButton.display(); // Draw button on the screen
+    if(Timer >= 1.0) {
+       isTimed = true;
+    }
+    
+    background(255);
+    fill(0);
+    textSize(100);
+    textAlign(CENTER, CENTER);
+    text("Collision", width/2, height/2-400);
+    text("Visualizer", width/2, height/2-280);
+    textSize(50);
+    text("Made by:", width/2, height/2-150);
+    textSize(60);
+    text("Lyle Joslyn", width/2, height/2-90);
+    
+    RadialButton.update(); // Update hover state
+    AABBButton.update();
+    
+    RadialButton.display(); // Draw button on the screen
+    AABBButton.display();
     
     // Check if the button is pressed
-    if (myButton.isPressed()) {
-      println("Button Pressed!");
+    if (RadialButton.isPressed() && isTimed == true) {
+      switchToRadialAnimation();
+    }
+    
+    if (AABBButton.isPressed() && isTimed == true) {
+      switchToAABBAnimation();
     }
   }
   
