@@ -102,6 +102,7 @@ class SceneRadialAnimation {
       Object1.FillColor = color(255,0,0);
       Object2.FillColor = color(255,0,0);
     }
+  
   }
   
 }

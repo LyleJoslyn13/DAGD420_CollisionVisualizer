@@ -26,7 +26,7 @@ class SceneAABBAnimation {
   }
   
   void update() {
-    
+
   }
   
   void draw() {

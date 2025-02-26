@@ -14,7 +14,7 @@ float prevTime = 0;
 
 void setup() {
   size(1000,1000);
-  switchToFinish();
+  switchToAABBVisualizer();
 }
 
 void draw() {
@@ -84,7 +84,6 @@ void switchToFinish(){
 }
 
 void switchToRadialAnimation(){
-  println("RadialAnimation");
   sceneRadialAnimation = new SceneRadialAnimation();
   sceneTitle = null;
   sceneFinish = null;
@@ -93,7 +92,6 @@ void switchToRadialAnimation(){
   sceneAABBAnimation = null;
   sceneAABBCode = null;
   sceneAABBVisualizer = null;
-  println("RadialAnimationFinish");
 }
 
 void switchToRadialCode(){         
