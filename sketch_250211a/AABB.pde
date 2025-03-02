@@ -1,5 +1,5 @@
 class AABB {
-  float x, y, w, h; // Location and Size of each AABB object.
+  float x, y, w, h;
   float halfW, halfH;
   float angle;
 
@@ -7,6 +7,11 @@ class AABB {
   float edgeR;
   float edgeT;
   float edgeB;
+  
+  boolean isXBarrierLeft = false;
+  boolean isXBarrierRight = false;
+  boolean isYBarrierTop = false;
+  boolean isYBarrierBottom = false;
 
   PVector velocity = new PVector();
   
@@ -15,8 +20,7 @@ class AABB {
   boolean isSelected = false;
 
   AABB() {
-    // All child classes of AABB must call the setSize() function
-    // in their constructors.
+
   }
 
   void update() {
@@ -25,8 +29,12 @@ class AABB {
     
     if(isSelected) {
       if (mouseX != x || mouseY != y) {
-        x = mouseX;
-        y = mouseY;
+        if(!isXBarrierLeft && !isXBarrierRight){
+          x = mouseX;
+        } 
+        if(!isYBarrierBottom && !isYBarrierTop){
+          y = mouseY;
+        }
       }
     }
     
@@ -37,15 +45,15 @@ class AABB {
     fill(FillColor);
     rect(x - halfW,y-halfH,w,h);
     
-    circle(edgeR,edgeB,5);
-    circle(edgeR,edgeT,5);
-    circle(edgeL,edgeB,5);
-    circle(edgeL,edgeT,5);
+    //circle(edgeR,edgeB,5);
+    //circle(edgeR,edgeT,5);
+    //circle(edgeL,edgeB,5);
+    //circle(edgeL,edgeT,5);
     
-    circle(edgeR + halfW,edgeB + halfH,5);
-    circle(edgeR + halfW,edgeT + halfH,5);
-    circle(edgeL + halfW,edgeB + halfH,5);
-    circle(edgeL + halfW,edgeT + halfH,5);
+    //circle(edgeR + halfW,edgeB + halfH,5);
+    //circle(edgeR + halfW,edgeT + halfH,5);
+    //circle(edgeL + halfW,edgeB + halfH,5);
+    //circle(edgeL + halfW,edgeT + halfH,5);
   }
 
   void setSize(float w, float h) {
@@ -53,7 +61,6 @@ class AABB {
     this.h = h;
     halfW = w/2;
     halfH = h/2;
-    println(halfH);
   }
 
   void calcAABB() {

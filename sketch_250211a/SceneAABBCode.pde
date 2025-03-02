@@ -6,7 +6,15 @@ class SceneAABBCode{
   float Timer = 0;
   boolean isTimed = false;
   
+  PImage Code1;
+  PImage Code2;
+  PImage Code3;
+  
   SceneAABBCode() {
+    
+    Code1 = loadImage("Images/AABBCode1.PNG");
+    Code2 = loadImage("Images/AABBCode2.PNG");
+    Code3 = loadImage("Images/AABBCode3.PNG");
     
   }
   
@@ -23,9 +31,24 @@ class SceneAABBCode{
     
     background(255);
     fill(0);
-    textSize(35);
     textAlign(CENTER, CENTER);
-    text("AABB Code", width/2, height/2-60);
+    
+    image(Code1,10,10);
+    textSize(25);
+    text("Variables of Class AABB",150,250);
+    
+    image(Code2,600,10);
+    textSize(25);
+    text("Draw Function",800,100);
+    
+    image(Code3,10,300);
+    textSize(25);
+    text("setSize() is ran on start and whenever the objects size changes",550,400);
+    
+    text("calcAABB() is ran on Tick",400,550);
+    
+    text("used to CheckCollision() between",700,675);
+    text("this AABB Object and another",700,700);
     
     LastButton.update(); // Update hover state
     NextButton.update();

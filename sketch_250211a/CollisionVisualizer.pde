@@ -14,7 +14,7 @@ float prevTime = 0;
 
 void setup() {
   size(1000,1000);
-  switchToAABBVisualizer();
+  switchToTitle();
 }
 
 void draw() {
