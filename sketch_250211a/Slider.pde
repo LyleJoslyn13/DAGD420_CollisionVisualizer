@@ -46,7 +46,7 @@ class Slider {
   }
   
   boolean isHovered(){
-    return dist(mouseX, mouseY, knobX, Position.y + Height / 2) < 10; 
+    return dist(mouseX, mouseY, knobX, Position.y + Height / 2) < Height / 2; 
   }
   
 }
